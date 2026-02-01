@@ -650,14 +650,14 @@ section h2 {
 }
 
 .contact-card h3 {
-    color: #2c3e50;
+    color: var(--text-primary);
     font-size: 1.4rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .contact-description {
-    color: #555;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 2rem;
     font-size: 0.95rem;
@@ -681,12 +681,12 @@ section h2 {
 
 .contact-label {
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-primary);
     min-width: 80px;
 }
 
 .contact-value {
-    color: #555;
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
