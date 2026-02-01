@@ -8,8 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>Mikiyas</h1>
-        <p>Software Developer</p>
+        <div class="typing-container">
+            <h1 id="name-text" class="typing-text"></h1>
+            <p id="role-text" class="typing-text"></p>
+            <span class="cursor" id="cursor">|</span>
+        </div>
     </header>
 
     <nav>
@@ -140,6 +143,42 @@
     </footer>
 
     <script>
+        // Typing animation
+        const nameText = "My name is Mikiyas Arage";
+        const roleText = "I am a Backend Developer";
+        const nameElement = document.getElementById('name-text');
+        const roleElement = document.getElementById('role-text');
+        const cursor = document.getElementById('cursor');
+        
+        let nameIndex = 0;
+        let roleIndex = 0;
+        let isNameComplete = false;
+        
+        function typeWriter() {
+            if (!isNameComplete && nameIndex < nameText.length) {
+                nameElement.textContent += nameText.charAt(nameIndex);
+                nameIndex++;
+                setTimeout(typeWriter, 100); // Adjust speed here (100ms per character)
+            } else if (!isNameComplete) {
+                isNameComplete = true;
+                setTimeout(typeWriter, 500); // Pause before starting role text
+            } else if (roleIndex < roleText.length) {
+                roleElement.textContent += roleText.charAt(roleIndex);
+                roleIndex++;
+                setTimeout(typeWriter, 100); // Adjust speed here (100ms per character)
+            } else {
+                // Animation complete, hide cursor after a delay
+                setTimeout(() => {
+                    cursor.style.display = 'none';
+                }, 2000);
+            }
+        }
+        
+        // Start typing animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 500); // Small delay before starting
+        });
+
         // Mobile navigation toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
