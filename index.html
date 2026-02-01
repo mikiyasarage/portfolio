@@ -13,15 +13,33 @@
     </header>
 
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#home">Mikiyas</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="https://github.com/mikiyasarage/campus-companion-app" target="_blank" class="nav-link">Campus Companion App</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
+        <section id="home">
+            <div class="hero-content">
+                <h2>Welcome to My Portfolio</h2>
+                <p class="hero-text">I'm a backend developer passionate about creating functional and clean web projects. Explore my work and get in touch!</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
         <section id="about">
             <h2>About Me</h2>
             <p class="about-text">Hi! I'm Mikiyas, a backend developer with experience in PHP, MySQL, and building REST APIs. I also have basic frontend skills (HTML, CSS, JS) and understand how Flutter apps integrate with backend systems. I enjoy creating functional and clean web projects.</p>
@@ -121,5 +139,32 @@
     <footer>
         <p>&copy; 2026 Mikiyas</p>
     </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
